@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Optimization: Compelling title and description -->
+    <title>Age Calculator | Find Your Exact Age</title>
+    <meta name="description" content="Calculate your exact age in years, months, and days instantly. A fast, free, and privacy-friendly age calculator tool.">
+    
+    <!-- Open Graph for social sharing -->
+    <meta property="og:title" content="Exact Age Calculator">
+    <meta property="og:description" content="Find out exactly how old you are in years, months, days, and total days lived.">
+    <meta property="og:type" content="website">
+
+    <!-- Structured Data (FAQ Schema) for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "How is exact age calculated?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Exact age is calculated by finding the difference between the current date and your date of birth, accounting for leap years and the varying number of days in different months."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Does this age calculator account for leap years?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, our age calculator accurately accounts for leap years when calculating your exact age in days."
+        }
+      }]
+    }
+    </script>
+
+    <!-- Google Fonts for modern typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* CSS Variables for theming and easy maintenance */
+        :root {
+            /* Light Theme */
+            --bg-color: #f3f4f6;
+            --container-bg: #ffffff;
+            --text-primary: #111827;
+            --text-secondary: #4b5563;
+            --accent-color: #6366f1;
+            --accent-hover: #4f46e5;
+            --border-color: #e5e7eb;
+            --error-color: #ef4444;
+            --card-bg: #f9fafb;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --transition: all 0.3s ease;
+        }
+
+        /* Dark Theme Variables */
+        [data-theme="dark"] {
+            --bg-color: #111827;
+            --container-bg: #1f2937;
+            --text-primary: #f9fafb;
+            --text-secondary: #d1d5db;
+            --accent-color: #818cf8;
+            --accent-hover: #6366f1;
+            --border-color: #374151;
+            --error-color: #f87171;
+            --card-bg: #374151;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Modern CSS Reset */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            transition: var(--transition);
+            padding: 1rem;
+        }
+
+        /* Layout & Container */
+        .calculator-container {
+            background-color: var(--container-bg);
+            border-radius: 1.5rem;
+            box-shadow: var(--shadow);
+            padding: 2.5rem;
+            width: 100%;
+            max-width: 500px;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        /* Header section */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        /* Theme Toggle Button */
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 50%;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--card-bg);
+            color: var(--accent-color);
+        }
+
+        .theme-toggle svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Form styling */
+        .input-group {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .input-field {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        input {
+            padding: 0.75rem;
+            border: 2px solid var(--border-color);
+            border-radius: 0.75rem;
+            background-color: var(--container-bg);
+            color: var(--text-primary);
+            font-size: 1.125rem;
+            font-family: inherit;
+            transition: var(--transition);
+            width: 100%;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+
+        /* Hide number arrows */
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        input[type="number"] {
+            -moz-appearance: textfield; /* Firefox */
+        }
+
+        .error-message {
+            color: var(--error-color);
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+            display: none;
+            text-align: center;
+        }
+
+        /* Buttons */
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        button {
+            flex: 1;
+            padding: 0.875rem 1.5rem;
+            border: none;
+            border-radius: 0.75rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: inherit;
+        }
+
+        .btn-calculate {
+            background-color: var(--accent-color);
+            color: white;
+            box-shadow: 0 4px 14px 0 rgba(99, 102, 241, 0.39);
+        }
+
+        .btn-calculate:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-1px);
+        }
+
+        .btn-calculate:active {
+            transform: translateY(0);
+        }
+
+        .btn-reset {
+            background-color: transparent;
+            color: var(--text-secondary);
+            border: 2px solid var(--border-color);
+        }
+
+        .btn-reset:hover {
+            background-color: var(--card-bg);
+            color: var(--text-primary);
+        }
+
+        /* Results Area */
+        .results {
+            display: none; /* Hidden initially */
+            animation: fadeIn 0.5s ease;
+        }
+
+        .results.show {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .result-card {
+            background-color: var(--card-bg);
+            padding: 1.5rem 1rem;
+            border-radius: 1rem;
+            text-align: center;
+            border: 1px solid var(--border-color);
+        }
+
+        .result-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .result-label {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+        }
+
+        .extra-stats {
+            background-color: var(--card-bg);
+            padding: 1rem;
+            border-radius: 1rem;
+            text-align: center;
+            border: 1px solid var(--border-color);
+        }
+
+        .extra-stats p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .extra-stats span {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 480px) {
+            .input-group {
+                gap: 0.5rem;
+            }
+            .calculator-container {
+                padding: 1.5rem;
+            }
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+            .button-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="calculator-container" aria-labelledby="calculator-title">
+        <header>
+            <h1 id="calculator-title">Age Calculator</h1>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                <!-- Sun Icon (Default for Light Mode) -->
+                <svg id="themeIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                </svg>
+            </button>
+        </header>
+
+        <form id="ageForm" novalidate>
+            <div class="input-group">
+                <div class="input-field">
+                    <label for="day">Day</label>
+                    <input type="number" id="day" name="day" placeholder="DD" min="1" max="31" required aria-required="true">
+                </div>
+                <div class="input-field">
+                    <label for="month">Month</label>
+                    <input type="number" id="month" name="month" placeholder="MM" min="1" max="12" required aria-required="true">
+                </div>
+                <div class="input-field">
+                    <label for="year">Year</label>
+                    <input type="number" id="year" name="year" placeholder="YYYY" min="1900" required aria-required="true">
+                </div>
+            </div>
+            
+            <div id="errorMessage" class="error-message" role="alert"></div>
+
+            <div class="button-group">
+                <button type="submit" class="btn-calculate">Calculate Age</button>
+                <button type="button" id="resetBtn" class="btn-reset">Reset</button>
+            </div>
+        </form>
+
+        <section id="resultsSection" class="results" aria-live="polite">
+            <h2 class="sr-only" style="position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0;">Your Age Results</h2>
+            <div class="results-grid">
+                <div class="result-card">
+                    <div id="resultYears" class="result-value">0</div>
+                    <div class="result-label">Years</div>
+                </div>
+                <div class="result-card">
+                    <div id="resultMonths" class="result-value">0</div>
+                    <div class="result-label">Months</div>
+                </div>
+                <div class="result-card">
+                    <div id="resultDays" class="result-value">0</div>
+                    <div class="result-label">Days</div>
+                </div>
+            </div>
+            <div class="extra-stats">
+                <p>You have lived for a total of <span id="totalDays">0</span> days.</p>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // DOM Elements
+            const form = document.getElementById('ageForm');
+            const dayInput = document.getElementById('day');
+            const monthInput = document.getElementById('month');
+            const yearInput = document.getElementById('year');
+            const errorMessage = document.getElementById('errorMessage');
+            const resultsSection = document.getElementById('resultsSection');
+            const resultYears = document.getElementById('resultYears');
+            const resultMonths = document.getElementById('resultMonths');
+            const resultDays = document.getElementById('resultDays');
+            const totalDaysSpan = document.getElementById('totalDays');
+            const resetBtn = document.getElementById('resetBtn');
+            const themeToggle = document.getElementById('themeToggle');
+            const themeIcon = document.getElementById('themeIcon');
+
+            // --- Theme Toggling Logic ---
+            
+            // Check for saved theme preference or system preference
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                document.body.setAttribute('data-theme', 'dark');
+                updateThemeIcon('dark');
+            }
+
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = document.body.getAttribute('data-theme');
+                if (currentTheme === 'dark') {
+                    document.body.removeAttribute('data-theme');
+                    localStorage.setItem('theme', 'light');
+                    updateThemeIcon('light');
+                } else {
+                    document.body.setAttribute('data-theme', 'dark');
+                    localStorage.setItem('theme', 'dark');
+                    updateThemeIcon('dark');
+                }
+            });
+
+            function updateThemeIcon(theme) {
+                if (theme === 'dark') {
+                    // Sun Icon for switching back to light mode
+                    themeIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />';
+                } else {
+                    // Moon Icon for switching to dark mode
+                    themeIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />';
+                }
+            }
+
+            // --- Calculation Logic ---
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                calculateAge();
+            });
+
+            resetBtn.addEventListener('click', () => {
+                form.reset();
+                resultsSection.classList.remove('show');
+                hideError();
+                dayInput.focus();
+            });
+
+            function showError(msg) {
+                errorMessage.textContent = msg;
+                errorMessage.style.display = 'block';
+                resultsSection.classList.remove('show');
+            }
+
+            function hideError() {
+                errorMessage.style.display = 'none';
+            }
+
+            function isValidDate(d, m, y) {
+                // Check if valid primitive values
+                if (isNaN(d) || isNaN(m) || isNaN(y)) return false;
+                if (m < 1 || m > 12) return false;
+                
+                // Days in months
+                const daysInMonth = [31, (isLeapYear(y) ? 29 : 28), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+                
+                return d > 0 && d <= daysInMonth[m - 1];
+            }
+
+            function isLeapYear(year) {
+                return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+            }
+
+            function calculateAge() {
+                hideError();
+
+                const d = parseInt(dayInput.value, 10);
+                const m = parseInt(monthInput.value, 10);
+                const y = parseInt(yearInput.value, 10);
+
+                if (!d || !m || !y) {
+                    showError("Please fill in all fields.");
+                    return;
+                }
+
+                if (!isValidDate(d, m, y)) {
+                    showError("Must be a valid date.");
+                    return;
+                }
+
+                const birthDate = new Date(y, m - 1, d);
+                const today = new Date();
+
+                // Check if birth date is in the future
+                if (birthDate > today) {
+                    showError("Must be in the past.");
+                    return;
+                }
+
+                // Calculate total days lived
+                const diffTime = Math.abs(today - birthDate);
+                const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+                // Calculate exact age (Years, Months, Days)
+                let years = today.getFullYear() - birthDate.getFullYear();
+                let months = today.getMonth() - birthDate.getMonth();
+                let days = today.getDate() - birthDate.getDate();
+
+                // Adjust if days are negative
+                if (days < 0) {
+                    months--;
+                    // Get the number of days in the previous month of the current year
+                    const prevMonth = new Date(today.getFullYear(), today.getMonth(), 0);
+                    days += prevMonth.getDate();
+                }
+
+                // Adjust if months are negative
+                if (months < 0) {
+                    years--;
+                    months += 12;
+                }
+
+                // Update UI
+                animateValue(resultYears, 0, years, 1000);
+                animateValue(resultMonths, 0, months, 1000);
+                animateValue(resultDays, 0, days, 1000);
+                
+                // Format total days with commas for readability
+                totalDaysSpan.textContent = diffDays.toLocaleString();
+
+                resultsSection.classList.add('show');
+            }
+
+            // Fun animation for numbers counting up
+            function animateValue(obj, start, end, duration) {
+                let startTimestamp = null;
+                const step = (timestamp) => {
+                    if (!startTimestamp) startTimestamp = timestamp;
+                    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                    // easeOutQuart
+                    const easeProgress = 1 - Math.pow(1 - progress, 4);
+                    obj.innerHTML = Math.floor(easeProgress * (end - start) + start);
+                    if (progress < 1) {
+                        window.requestAnimationFrame(step);
+                    }
+                };
+                window.requestAnimationFrame(step);
+            }
+        });
+    </script>
+</body>
+</html>
