@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const sans = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Exact Age Calculator | Find Your Age in Years, Months, and Days",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     "google-adsense-account": "ca-pub-7328437477810038",
   },
   icons: {
-    icon: '/favicon.png',
+    icon: '/favicon.ico',
   },
 };
 
@@ -105,8 +105,25 @@ export default function RootLayout({
             }),
           }}
         />
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7328437477810038"
+          crossOrigin="anonymous"
+        ></script>
+        {/* Google Analytics (gtag.js) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-2EN6KTJTE9"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-2EN6KTJTE9');
+            `,
+          }}
+        />
       </head>
-      <body className={`${inter.className} min-h-screen bg-background text-foreground flex flex-col`}>
+      <body className={`${sans.className} min-h-screen bg-background text-foreground flex flex-col`}>
         <Header />
         <main className="flex-1 w-full max-w-[1200px] mx-auto">
           {children}

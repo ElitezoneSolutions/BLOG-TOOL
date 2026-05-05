@@ -297,6 +297,94 @@ export default function Home() {
         </div>
       </section>
 
+      {/* SEO Content Sections */}
+      <section className="mt-20 md:mt-32 space-y-20 md:space-y-32">
+        
+        {/* Why Use This Tool */}
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 className="text-3xl md:text-4xl font-extrabold mb-6 text-foreground">Why Use Our Exact Age Calculator?</h2>
+            <p className="text-muted-foreground text-lg leading-relaxed mb-6">
+              Knowing your exact chronological age is more than just a number. It's used for official documents, competitive sports eligibility, and tracking personal milestones with precision. 
+            </p>
+            <ul className="space-y-4">
+              {[
+                "100% Privacy Friendly: Calculations happen in your browser.",
+                "Precision Accuracy: Accounts for leap years and varying month lengths.",
+                "Detailed Breakdown: See your age in weeks, days, hours, and even seconds.",
+                "Zero Cost: No registration or subscription required."
+              ].map((item, i) => (
+                <li key={i} className="flex items-start gap-3 text-foreground font-semibold">
+                  <span className="text-primary mt-1">✓</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="bg-muted/30 rounded-[2.5rem] p-8 border border-border shadow-inner flex items-center justify-center">
+            <Image 
+              src="/exact-age-calculator-illustration.png" 
+              alt="Age Calculation Illustration" 
+              width={400} 
+              height={400} 
+              className="rounded-2xl shadow-2xl"
+            />
+          </div>
+        </div>
+
+        {/* How it Works */}
+        <div className="text-center max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-extrabold mb-8 text-foreground">How It Works</h2>
+          <div className="grid sm:grid-cols-3 gap-8">
+            {[
+              { step: "01", title: "Enter DOB", desc: "Input your day, month, and year of birth." },
+              { step: "02", title: "Smart Compute", desc: "Our algorithm calculates the exact time difference." },
+              { step: "03", title: "Get Results", desc: "Instantly see your age in multiple formats." }
+            ].map((s, i) => (
+              <div key={i} className="space-y-4">
+                <div className="text-5xl font-black text-primary/20">{s.step}</div>
+                <h3 className="text-xl font-bold">{s.title}</h3>
+                <p className="text-muted-foreground">{s.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Detailed FAQ Section */}
+        <div className="bg-card border border-border rounded-[2.5rem] p-8 md:p-16 shadow-xl">
+          <h2 className="text-3xl md:text-4xl font-extrabold mb-12 text-center text-foreground">Frequently Asked Questions</h2>
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12">
+            {[
+              {
+                q: "How is my exact age calculated?",
+                a: "Our tool calculates your age by finding the difference between your date of birth and the current date. It uses the Gregorian calendar system, ensuring every leap year and month length is accounted for."
+              },
+              {
+                q: "Is my data stored on your servers?",
+                a: "No. Your privacy is our priority. All calculations are performed locally in your browser. We do not collect, store, or share your date of birth or any personal information."
+              },
+              {
+                q: "Can I use this for official purposes?",
+                a: "While our calculator is highly accurate, it is intended for informational and entertainment purposes. For official legal or government documents, always refer to your birth certificate or official ID."
+              },
+              {
+                q: "Does it account for time zones?",
+                a: "The calculator uses your local device time to determine 'today'. This ensures that the calculation is relevant to where you are currently located."
+              }
+            ].map((faq, i) => (
+              <div key={i} className="space-y-3">
+                <h3 className="text-xl font-bold text-foreground flex gap-3">
+                  <span className="text-primary italic">Q.</span> {faq.q}
+                </h3>
+                <p className="text-muted-foreground leading-relaxed pl-7 border-l-2 border-primary/20">
+                  {faq.a}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </section>
     </article>
   );
 }

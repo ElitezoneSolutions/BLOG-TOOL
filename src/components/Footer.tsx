@@ -59,6 +59,11 @@ export default function Footer() {
         </div>
       </section>
 
+      <nav className="flex flex-wrap justify-center gap-6 mt-12 mb-8">
+        <a href="/privacy-policy" className="text-sm font-semibold text-muted-foreground hover:text-primary transition-colors">Privacy Policy</a>
+        <a href="/contact" className="text-sm font-semibold text-muted-foreground hover:text-primary transition-colors">Contact Us</a>
+      </nav>
+
       <div className="text-center mt-12 text-sm text-muted-foreground font-medium">
         &copy; {new Date().getFullYear()} ahmedtls.pro. All rights reserved.
       </div>
