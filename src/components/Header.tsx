@@ -9,7 +9,7 @@ export default function Header() {
             E
           </div>
           <span className="font-extrabold text-xl tracking-tight hidden sm:inline-block">
-            Elitezone Solutions
+            TLS Calculator
           </span>
         </Link>
         <nav className="flex items-center gap-6 text-sm font-semibold text-muted-foreground">
