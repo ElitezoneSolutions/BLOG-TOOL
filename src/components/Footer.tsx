@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 export default function Footer() {
-  const shareUrl = "https://yourdomain.com"; // Replace with your domain
+  const shareUrl = "https://ahmedtls.pro";
   const shareText = "Check out this amazing tool!";
 
   return (

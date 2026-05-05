@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title: "Exact Age Calculator | Find Your Age Instantly",
     description: "Accurately calculate your chronological age in years, months, and days with our free tool.",
     type: "website",
-    url: "https://yourdomain.com", // Replace with actual domain
+    url: "https://ahmedtls.pro",
     siteName: "Exact Age Calculator",
   },
   twitter: {
@@ -23,6 +23,9 @@ export const metadata: Metadata = {
   },
   other: {
     "google-adsense-account": "ca-pub-7328437477810038",
+  },
+  icons: {
+    icon: '/favicon.png',
   },
 };
 
@@ -61,20 +64,20 @@ export default function RootLayout({
                   "author": {
                     "@type": "Person",
                     "name": "Ahmed Raza",
-                    "url": "https://yourdomain.com/author/ahmed-raza",
-                    "image": "https://yourdomain.com/author-profile.jpeg"
+                    "url": "https://ahmedtls.pro/author/ahmed-raza",
+                    "image": "https://ahmedtls.pro/author-profile.jpeg"
                   },
                   "publisher": {
                     "@type": "Organization",
                     "name": "Exact Age Calculator",
                     "logo": {
                       "@type": "ImageObject",
-                      "url": "https://yourdomain.com/logo.png"
+                      "url": "https://ahmedtls.pro/logo.png"
                     }
                   },
                   "mainEntityOfPage": {
                     "@type": "WebPage",
-                    "@id": "https://yourdomain.com/"
+                    "@id": "https://ahmedtls.pro/"
                   }
                 },
                 {

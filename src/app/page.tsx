@@ -122,7 +122,7 @@ export default function Home() {
     setResults(null);
   };
 
-  const shareUrl = "https://yourdomain.com"; // Replace with your domain
+  const shareUrl = "https://ahmedtls.pro";
   const shareText = "Check out this Free Exact Age Calculator!";
 
   return (
