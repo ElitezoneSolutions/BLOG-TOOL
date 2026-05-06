@@ -4,6 +4,15 @@ import { logout } from '../login/actions'
 import { LogOut, ExternalLink, Menu } from 'lucide-react'
 import Link from 'next/link'
 import AdminNav from '@/components/admin/AdminNav'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Admin Portal | Exact Age Calculator',
+  robots: {
+    index: false,
+    follow: false,
+  },
+}
 
 export default async function AdminLayout({
   children,

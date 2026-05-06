@@ -27,6 +27,19 @@ export const metadata: Metadata = {
   icons: {
     icon: '/favicon.ico',
   },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 import LayoutWrapper from "@/components/LayoutWrapper";
