@@ -19,26 +19,26 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     {
       url: 'https://ahmedtls.pro',
       lastModified: new Date(),
-      changeFrequency: 'yearly',
+      changeFrequency: 'daily',
       priority: 1,
     },
     {
-      url: 'https://ahmedtls.pro/blog',
+      url: 'https://ahmedtls.pro/age-calculator',
       lastModified: new Date(),
-      changeFrequency: 'weekly',
+      changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
       url: 'https://ahmedtls.pro/privacy-policy',
       lastModified: new Date(),
       changeFrequency: 'monthly',
-      priority: 0.8,
+      priority: 0.5,
     },
     {
       url: 'https://ahmedtls.pro/contact',
       lastModified: new Date(),
       changeFrequency: 'monthly',
-      priority: 0.8,
+      priority: 0.5,
     },
     ...blogPosts,
   ]

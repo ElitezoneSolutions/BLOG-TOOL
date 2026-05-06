@@ -15,7 +15,7 @@ export default function LayoutWrapper({ children }: { children: React.ReactNode 
   return (
     <>
       <Header />
-      <main className="flex-1 w-full max-w-[1200px] mx-auto px-4 py-8">
+      <main className="flex-1 w-full">
         {children}
       </main>
       <Footer />

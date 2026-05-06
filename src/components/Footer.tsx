@@ -60,7 +60,8 @@ export default function Footer() {
       </section>
 
       <nav className="flex flex-wrap justify-center gap-6 mt-12 mb-8">
-        <a href="/blog" className="text-sm font-semibold text-muted-foreground hover:text-primary transition-colors">Blog</a>
+        <a href="/" className="text-sm font-semibold text-muted-foreground hover:text-primary transition-colors">Blog</a>
+        <a href="/age-calculator" className="text-sm font-semibold text-muted-foreground hover:text-primary transition-colors">Age Calculator</a>
         <a href="/privacy-policy" className="text-sm font-semibold text-muted-foreground hover:text-primary transition-colors">Privacy Policy</a>
         <a href="/contact" className="text-sm font-semibold text-muted-foreground hover:text-primary transition-colors">Contact Us</a>
       </nav>

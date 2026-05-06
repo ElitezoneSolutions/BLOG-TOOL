@@ -5,21 +5,21 @@ import "./globals.css";
 const sans = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Exact Age Calculator | Find Your Age in Years, Months, and Days",
-  description: "Use our free Exact Age Calculator to instantly determine your chronological age. Accurately calculate years, months, days, and total days lived.",
-  keywords: ["age calculator", "calculate my age", "exact age calculator", "chronological age", "date of birth calculator", "age difference"],
-  authors: [{ name: "Age Calculator Team" }],
+  title: "Ahmed TLS — Articles, Guides & Insights",
+  description: "Explore articles on technology, productivity, lifestyle, health, science, and more. Tools and insights by Ahmed Raza.",
+  keywords: ["blog", "articles", "technology", "productivity", "guides", "insights", "ahmed tls", "age calculator"],
+  authors: [{ name: "Ahmed Raza" }],
   openGraph: {
-    title: "Exact Age Calculator | Find Your Age Instantly",
-    description: "Accurately calculate your chronological age in years, months, and days with our free tool.",
+    title: "Ahmed TLS — Articles, Guides & Insights",
+    description: "Explore articles on technology, productivity, lifestyle, health, science, and more.",
     type: "website",
     url: "https://ahmedtls.pro",
-    siteName: "Exact Age Calculator",
+    siteName: "Ahmed TLS",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Exact Age Calculator | Find Your Age Instantly",
-    description: "Accurately calculate your chronological age in years, months, and days with our free tool.",
+    title: "Ahmed TLS — Articles, Guides & Insights",
+    description: "Explore articles on technology, productivity, lifestyle, health, science, and more.",
   },
   other: {
     "google-adsense-account": "ca-pub-7328437477810038",
