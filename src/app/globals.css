@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 
 
@@ -137,6 +138,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 input[type="number"] {
   -moz-appearance: textfield; /* Firefox */
+  appearance: textfield;
 }
 
 @keyframes fadeIn {
@@ -147,3 +149,27 @@ input[type="number"] {
 .animate-fade-in {
   animation: fadeIn 0.5s ease;
 }
+
+/* Rich Text Styling */
+.prose u {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+}
+
+.prose th, .prose td {
+  border: 1px solid var(--border);
+  padding: 0.75rem 1rem;
+  text-align: left;
+}
+
+.prose th {
+  background-color: var(--muted);
+  font-weight: bold;
+}
+

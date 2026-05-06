@@ -16,6 +16,9 @@ export default function Header() {
           <Link href="/" className="text-foreground hover:text-primary transition-colors">
             Age Calculator
           </Link>
+          <Link href="/blog" className="hover:text-primary transition-colors">
+            Blog
+          </Link>
           {/* Add future tools here */}
           {/* <Link href="/bmi-calculator" className="hover:text-primary transition-colors">BMI Calculator</Link> */}
         </nav>

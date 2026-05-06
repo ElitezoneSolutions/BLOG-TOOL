@@ -29,8 +29,7 @@ export const metadata: Metadata = {
   },
 };
 
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import LayoutWrapper from "@/components/LayoutWrapper";
 
 export default function RootLayout({
   children,
@@ -99,7 +98,7 @@ export default function RootLayout({
                         "text": "Yes, our exact age calculator algorithm accurately accounts for leap years when computing your total days lived and exact chronological age."
                       }
                     }
-                  ]
+                   ]
                 }
               ]
             }),
@@ -124,11 +123,9 @@ export default function RootLayout({
         />
       </head>
       <body className={`${sans.className} min-h-screen bg-background text-foreground flex flex-col`}>
-        <Header />
-        <main className="flex-1 w-full max-w-[1200px] mx-auto">
+        <LayoutWrapper>
           {children}
-        </main>
-        <Footer />
+        </LayoutWrapper>
       </body>
     </html>
   );
