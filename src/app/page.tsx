@@ -2,7 +2,7 @@
 
 import { useState, useRef } from "react";
 import Image from "next/image";
-import Link from "next/link";
+
 
 export default function Home() {
   const [day, setDay] = useState("");
@@ -122,8 +122,7 @@ export default function Home() {
     setResults(null);
   };
 
-  const shareUrl = "https://ahmedtls.pro";
-  const shareText = "Check out this Free Exact Age Calculator!";
+
 
   return (
     <article className="max-w-[1200px] mx-auto px-4 py-8 md:py-20">
@@ -134,7 +133,7 @@ export default function Home() {
           Free Exact Age Calculator
         </h1>
         <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed md:leading-loose">
-          Instantly calculate your chronological age in years, months, and days. Discover exactly how many days you've been alive with our precision date of birth calculator.
+          Instantly calculate your chronological age in years, months, and days. Discover exactly how many days you&apos;ve been alive with our precision date of birth calculator.
         </p>
       </header>
 
@@ -305,7 +304,7 @@ export default function Home() {
           <div>
             <h2 className="text-3xl md:text-4xl font-extrabold mb-6 text-foreground">Why Use Our Exact Age Calculator?</h2>
             <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-              Knowing your exact chronological age is more than just a number. It's used for official documents, competitive sports eligibility, and tracking personal milestones with precision. 
+              Knowing your exact chronological age is more than just a number. It&apos;s used for official documents, competitive sports eligibility, and tracking personal milestones with precision. 
             </p>
             <ul className="space-y-4">
               {[

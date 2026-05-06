@@ -18,7 +18,7 @@ export default function PrivacyPolicy() {
 
       <section className="mb-10">
         <h2 className="text-2xl font-bold mb-4">3. Advertising</h2>
-        <p>We use Google AdSense to serve ads on our website. Google, as a third-party vendor, uses cookies to serve ads on our site. Google's use of advertising cookies enables it and its partners to serve ads to our users based on their visit to our site and/or other sites on the Internet.</p>
+        <p>We use Google AdSense to serve ads on our website. Google, as a third-party vendor, uses cookies to serve ads on our site. Google&apos;s use of advertising cookies enables it and its partners to serve ads to our users based on their visit to our site and/or other sites on the Internet.</p>
         <p>Users may opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer">Ads Settings</a>.</p>
       </section>
 
